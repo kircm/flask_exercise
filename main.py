@@ -8,7 +8,7 @@ from flask import request
 from markupsafe import escape
 
 app = Flask(__name__)
-HOST_PORT = "http://127.0.0.1:5000"
+HOST_PORT = "http://example.com"
 
 connection = sqlite3.connect('snippets.db')
 print("Opened database successfully")
@@ -82,3 +82,6 @@ def get_snippet(name=None):
         if conn: conn.close()
         print(e)
         abort(404)
+
+
+app.run(host='0.0.0.0', port=8080)
