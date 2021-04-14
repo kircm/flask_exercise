@@ -3,7 +3,7 @@
 The base API has been implemented considering:
 
 - the host and port is configurable in global var HOST_PORT which has
-  default value: "http://127.0.0.1:5000"
+  default value: "http://example.com"
 
 - The DB connection is oppened and closed at each interaction with the user
 
