@@ -71,7 +71,7 @@ def get_snippet(name=None):
 
 
 def is_expired(snippet, now):
-    return get_expires_at(snippet) > now
+    return get_expires_at(snippet) < now
 
 
 def get_expires_at(snp):
