@@ -69,8 +69,8 @@ def get_snippet(name=None):
         cur.execute("select snippet from snippets where name = ?", (name,))
         snippet = get_snippet_with_name(cur, name)
         if snippet:
-            expires_at = snippet['expires_at']
-            new_expires_at = datetime.fromisoformat(expires_at) + timedelta(seconds=30)
+            now = datetime.now()
+            new_expires_at = now + timedelta(seconds=30)
             cur.execute("UPDATE snippets SET expires_at=? WHERE name = ?", (new_expires_at, name))
             conn.commit()
             conn.close()
