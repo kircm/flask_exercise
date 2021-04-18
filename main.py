@@ -52,13 +52,13 @@ def get_snippet(name=None):
     try:
         conn = sqlite3.connect('snippets.db')
         cur = conn.cursor()
-        cur.execute("select snippet from snippets where name = ?", (name,))
         snippet = get_snippet_with_name(cur, name)
         now = datetime.now()
         if snippet and not is_expired(snippet, now):
             new_expires_at = now + timedelta(seconds=30)
             cur.execute("UPDATE snippets SET expires_at=? WHERE name = ?", (new_expires_at, name))
             conn.commit()
+            snippet = get_snippet_with_name(cur, name)
             conn.close()
             return snippet
         else:
