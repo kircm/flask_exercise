@@ -1,4 +1,16 @@
-# snippet handler
+# snippet service
+
+- Simple API to store and retireve snippets of text with an expiration date
+
+- Usage:
+
+```
+export FLASK_APP=main.py
+export FLASK_ENV=development
+
+flask run
+```
+
 
 The base API has been implemented considering:
 
